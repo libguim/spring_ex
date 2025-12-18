@@ -30,9 +30,6 @@
         <div class="row content">
             <div class="col">
                 <div class="card">
-<%--                    <div class="card-header">--%>
-<%--                        Featured--%>
-<%--                    </div>--%>
                     <div class="card-body">
 
                             <div class="input-group mb-3">
@@ -69,42 +66,14 @@
                                 </div>
                             </div>
 
-
-
-<%--                        <script>--%>
-
-<%--                            const serverValidResult = {}--%>
-<%--                            <c:forEach items="${errors}" var="error">--%>
-<%--                            serverValidResult['${error.getField()}'] = '${error.defaultMessage}'--%>
-<%--                            </c:forEach>--%>
-
-<%--                            console.log(serverValidResult)--%>
-
-<%--                        </script>--%>
                     </div>
                 </div>
             </div>
         </div>
 
     </div>
-<%--    <div class="row content">--%>
 
-<%--        <h1>Content</h1>--%>
-<%--    </div>--%>
-<%--    <div class="row footer">--%>
-<%--        <!--<h1>Footer</h1>-->--%>
-
-<%--        <div class="row   fixed-bottom" style="z-index: -100">--%>
-<%--            <footer class="py-1 my-1 ">--%>
-<%--                <p class="text-center text-muted">Footer</p>--%>
-<%--            </footer>--%>
-<%--        </div>--%>
-
-<%--    </div>--%>
 </div>
-
-
-<%--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>--%>
 
 </body>
 </html>
