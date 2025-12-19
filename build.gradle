@@ -86,6 +86,11 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator
     implementation 'org.hibernate.validator:hibernate-validator:9.1.0.Final'
+
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << '-parameters'
+    }
+
 }
 
 test {

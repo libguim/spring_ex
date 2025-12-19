@@ -27,7 +27,7 @@ public class TodoMapperTests {
     @Test
     public void testInsert(){
         TodoVO todoVO = TodoVO.builder()
-                .title("스프링 테스트")
+                .title("스프링 테스트12111111")
                 .dueDate(LocalDate.of(2022,10,10))
                 .writer("user00")
                 .build();

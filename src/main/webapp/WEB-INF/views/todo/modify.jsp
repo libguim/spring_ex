@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: it
-  Date: 2025-12-17
-  Time: 오후 12:31
+  Date: 2025-12-18
+  Time: 오전 11:39
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -49,65 +49,97 @@
         <div class="row content">
             <div class="col">
                 <div class="card">
-                    <div class="card-header">
-                        Featured
-                    </div>
                     <div class="card-body">
-                        <form action="/todo/register" method="post">
+                        <form action="/todo/modify" method="post">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Tno</span>
+                                <input type="text" name="tno" class="form-control" value="<c:out value="${dto.tno}"></c:out>" readonly>
+                            </div>
+
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Title</span>
-                                <input type="text" name="title" class="form-control" placeholder="Title">
+                                <input type="text" name="title" class="form-control" value="<c:out value="${dto.title}"></c:out>" readonly>
                             </div>
 
                             <div class="input-group mb-3">
                                 <span class="input-group-text">DueDate</span>
-                                <input type="date" name="dueDate" class="form-control" placeholder="dueDate">
+                                <input type="date" name="dueDate" class="form-control" value="<c:out value="${dto.dueDate}"></c:out>" >
                             </div>
 
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Writer</span>
-                                <input type="text" name="writer" class="form-control" placeholder="Writer">
+                                <input type="text" name="writer" class="form-control" value="<c:out value="${dto.writer}"></c:out>" readonly>
+                            </div>
+
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    Finished &nbsp;
+                                </label>
+                                <input class="form-check-input" type="checkbox" name="finished" ${dto.finished?"checked":""} >
                             </div>
 
                             <div class="my-4">
                                 <div class="float-end">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                    <button type="result" class="btn btn-secondary">Reset</button>
+                                    <button type="button" class="btn btn-danger">Remove</button>
+                                    <button type="button" class="btn btn-primary">Modify</button>
+                                    <button type="button" class="btn btn-secondary">List</button>
                                 </div>
                             </div>
-
                         </form>
-
-                        <script>
-
-                            const serverValidResult = {}
-                            <c:forEach items="${errors}" var="error">
-                                serverValidResult['${error.getField()}'] = '${error.defaultMessage}'
-                            </c:forEach>
-
-                            console.log(serverValidResult)
-
-                        </script>
                     </div>
+
+                    <script>
+
+                        const serverValidResult = {}
+                        <c:forEach items="${errors}" var="error"> serverValidResult['${error.getField()}'] = '${error.defaultMessage}'
+                        </c:forEach>
+                        console.log(serverValidResult)
+
+                    </script>
+
+                    <script>
+                        const formObj = document.querySelector("form")
+                        document.querySelector(".btn-danger").addEventListener("click",function(e) {
+
+                            e.preventDefault()
+                            e.stopPropagation()
+
+                            formObj.action ="/todo/remove"
+                            formObj.method ="post"
+
+                            formObj.submit()
+
+                        },false);
+
+                        document.querySelector(".btn-primary").addEventListener("click",function(e) {
+
+                            e.preventDefault()
+                            e.stopPropagation()
+
+                            formObj.action ="/todo/modify"
+                            formObj.method ="post"
+
+                            formObj.submit()
+
+                        },false);
+
+                        document.querySelector(".btn-secondary").addEventListener("click",function(e) {
+
+                            e.preventDefault()
+                            e.stopPropagation()
+
+                            formObj.action ="/todo/list"
+
+                        },false);
+
+                    </script>
+
                 </div>
             </div>
         </div>
 
     </div>
-<%--    <div class="row content">--%>
 
-<%--        <h1>Content</h1>--%>
-<%--    </div>--%>
-    <div class="row footer">
-        <!--<h1>Footer</h1>-->
-
-        <div class="row   fixed-bottom" style="z-index: -100">
-            <footer class="py-1 my-1 ">
-                <p class="text-center text-muted">Footer</p>
-            </footer>
-        </div>
-
-    </div>
 </div>
 
 
