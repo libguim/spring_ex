@@ -32,7 +32,9 @@ public class TodoMapperTests {
                 .writer("user00")
                 .build();
 
-        todoMapper.insert(todoVO);
+        for(int i=0; i<100; i++){
+            todoMapper.insert(todoVO);
+        }
     }
 
     @Test
