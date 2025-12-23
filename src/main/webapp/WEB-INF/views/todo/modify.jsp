@@ -52,12 +52,12 @@
                     <div class="card-body">
                         <form action="/todo/modify" method="post">
 
-                            <input type="hidden" name="page" value="${pageRequestDTO.page}">
-                            <input type="hidden" name="size" value="${pageRequestDTO.size}">
+<%--                            <input type="hidden" name="page" value="${pageRequestDTO.page}">--%>
+<%--                            <input type="hidden" name="size" value="${pageRequestDTO.size}">--%>
 
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Tno</span>
-                                <input type="text" name="tno" class="form-control" value="<c:out value="${dto.tno}"></c:out>" readonly>
+                                <input type="text" name="tno" class="form-control" value=<c:out value="${dto.tno}"></c:out> readonly>
                             </div>
 
                             <div class="input-group mb-3">
@@ -108,7 +108,12 @@
                             e.preventDefault()
                             e.stopPropagation()
 
-                            formObj.action ="/todo/remove"
+                            if (!confirm("정말 삭제하시겠습니까?")) {
+                                // 사용자가 '취소'를 눌렀을 경우 함수 종료 (아무 일도 일어나지 않음)
+                                return;
+                            }
+
+                            formObj.action =`/todo/remove?${pageRequestDTO.link}`
                             formObj.method ="post"
 
                             formObj.submit()
